@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>중앙대학교 배경화면</title>
+<meta name="description" content="중앙대학교 홍보대사 중앙사랑 34기가 만든 중앙대학교 배경화면 11종. 예비 중앙인과 중앙인을 위해 무료로 배포해요.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="중앙대학교 배경화면 | 중앙사랑">
+<meta property="og:description" content="한국의 중앙에서, 세계의 중앙으로. 중앙사랑 34기가 준비한 배경화면 11종을 받아 가세요.">
+<meta property="og:image" content="og.jpg">
+<meta name="theme-color" content="#2f6fd6">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="stylesheet" href="fonts/pretendard.css">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+</style>
+<style>
+/* Layout: kitsch sticker-book in CAU blue. Thick navy outlines + hard offset shadows (Puang's own line color), a blue hero with a big Puang sticker, a tilted marquee, a gallery of slightly crooked phone cards, guide "tickets", a cheer panel, navy footer. Single deliberate light look. */
+:root {
+  --ink: #13284a;        /* Puang outline navy */
+  --blue: #2f6fd6;       /* CAU blue, hero + primary */
+  --blue-deep: #1f57b5;
+  --sky: #8fd0f0;        /* Puang body */
+  --sky-pale: #e9f5fd;
+  --pink: #f6bccb;       /* Puang cheeks/tail */
+  --paper: #ffffff;
+  --muted: #4b5d7a;
+  --shadow: 4px 4px 0 var(--ink);
+  --shadow-lg: 6px 6px 0 var(--ink);
+  --line: 2.5px solid var(--ink);
+  --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { background: var(--blue); }
+body {
+  background: var(--sky-pale); color: var(--ink);
+  font-family: var(--font); font-size: 16px; line-height: 1.6; letter-spacing: -.015em;
+  -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--blue); }
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+button { font: inherit; color: inherit; letter-spacing: inherit; }
+img { display: block; }
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 8px; }
+
+/* shared pieces */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; padding: 0 24px; border-radius: 999px; border: var(--line);
+  background: var(--paper); color: var(--ink); box-shadow: var(--shadow);
+  text-decoration: none; font-weight: 800; font-size: 16px; cursor: pointer;
+  transition: transform .12s, box-shadow .12s;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.btn.pink { background: var(--pink); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.tag {
+  color: var(--ink);
+  display: inline-flex; align-items: center; gap: 6px; border: var(--line); border-radius: 999px;
+  background: var(--paper); padding: 4px 14px; font-size: 14px; font-weight: 800; box-shadow: 3px 3px 0 var(--ink);
+}
+.sticker { filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(4px 5px 0 rgba(19, 40, 74, .9)); }
+
+/* header + hero (one blue field) */
+.top { background: var(--blue); color: #fff; position: relative; overflow: hidden; border-bottom: var(--line); }
+.top::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.16) 1.5px, transparent 1.6px); background-size: 22px 22px;
+}
+.mast { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 18px; letter-spacing: -.03em; }
+.mark {
+  width: 56px; height: 32px; flex: none; background: #fff;
+  -webkit-mask: url(cau-mark.png) center / contain no-repeat; mask: url(cau-mark.png) center / contain no-repeat;
+}
+.mast .tag { color: var(--ink); font-size: 13px; }
+
+.hero { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: center; gap: 24px; padding-block: 28px 64px; }
+.hero-copy { display: grid; gap: 22px; justify-items: start; min-width: 0; }
+.hero-copy .tag { transform: rotate(-3deg); }
+.hero h1 {
+  margin: 0; font-weight: 900; font-size: clamp(34px, 6.9vw, 84px); line-height: 1.12; letter-spacing: -.01em;
+}
+.hero h1 .row, .hero h1 .hl { white-space: nowrap; }
+.hero h1 .row { display: block; }
+.hero h1 .hl {
+  display: inline-block; background: var(--sky); color: var(--ink); padding: 0 .14em .04em; margin-top: .18em;
+  border: 3px solid var(--ink); border-radius: .22em; box-shadow: var(--shadow-lg); transform: rotate(-2deg);
+}
+.hero p { margin: 11px 0 0; max-width: 30em; font-size: 18px; font-weight: 600; color: rgba(255,255,255,.92); }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; padding-top: 4px; }
+
+.hero-art { position: relative; justify-self: center; width: min(100%, 440px); aspect-ratio: 1; }
+.hero-art .disc { position: absolute; inset: 8% 6% 6% 6%; border-radius: 50%; background: var(--sky); border: 3px solid var(--ink); box-shadow: var(--shadow-lg); }
+.hero-art .puang { position: absolute; left: 50%; bottom: 2%; height: 98%; width: auto; max-width: none; transform: translateX(-50%); }
+.badge { position: absolute; right: -2%; top: -2%; width: 30%; aspect-ratio: 1; }
+.badge svg { width: 100%; height: 100%; overflow: visible; }
+.badge-spin { transform-origin: 50% 50%; }
+.bubble {
+  position: absolute; left: -4%; top: 14%; background: #fff; color: var(--ink); border: var(--line); box-shadow: var(--shadow);
+  border-radius: 18px 18px 18px 4px; padding: 8px 14px; font-weight: 800; font-size: 15px; transform: rotate(-6deg); white-space: nowrap;
+}
+.spark { position: absolute; color: #fff; width: 26px; height: 26px; }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-block: 8px 48px; gap: 8px; }
+  .hero h1 { font-size: clamp(30px, 12.4vw, 66px); }
+  .hero-art { order: -1; width: min(82%, 320px); }
+  .bubble { left: -8%; top: 6%; font-size: 13px; }
+}
+
+/* marquee */
+.marquee { background: var(--pink); border-bottom: var(--line); overflow: hidden; }
+.marquee-track { display: flex; width: max-content; padding-block: 12px; }
+.marquee-track span { display: inline-flex; align-items: center; gap: 22px; padding-right: 22px; font-weight: 900; font-size: 20px; letter-spacing: -.03em; white-space: nowrap; }
+.marquee-track svg { width: 18px; height: 18px; flex: none; }
+
+/* gallery */
+.gallery { padding-block: 64px 96px; }
+.bar { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 34px; }
+.bar-title { display: flex; align-items: flex-end; gap: 12px; }
+.bar-title img { width: 64px; height: auto; }
+.bar h2 { margin: 0; font-size: clamp(30px, 5vw, 46px); font-weight: 900; line-height: 1.05; letter-spacing: -.05em; }
+.bar h2 small { display: block; font-size: 15px; font-weight: 700; letter-spacing: -.01em; color: var(--blue); margin-bottom: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  border: var(--line); background: #fff; border-radius: 999px; padding: 7px 16px; font-size: 15px; font-weight: 700; cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink); transition: transform .12s, box-shadow .12s;
+}
+.chip:hover { transform: translate(-1px, -1px); }
+.chip[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
+.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 36px 24px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; } }
+.card {
+  display: grid; gap: 12px; min-width: 0; background: #fff; border: var(--line); border-radius: 24px; padding: 10px 10px 14px;
+  box-shadow: var(--shadow-lg); transform: rotate(var(--r, 0deg)); transition: transform .2s ease;
+}
+.card:nth-child(4n+1) { --r: -1.6deg; }
+.card:nth-child(4n+2) { --r: 1.2deg; }
+.card:nth-child(4n+3) { --r: -.8deg; }
+.card:nth-child(4n) { --r: 1.8deg; }
+.card:hover { transform: rotate(0deg) translateY(-4px); }
+.shot {
+  display: block; width: 100%; padding: 0; border: var(--line); cursor: zoom-in; background: var(--sky-pale);
+  aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; position: relative;
+}
+.shot img { width: 100%; height: 100%; object-fit: cover; }
+.no {
+  position: absolute; left: 8px; top: 8px; font-size: 12px; font-weight: 900; background: var(--pink); color: var(--ink);
+  border: 2px solid var(--ink); padding: 1px 9px; border-radius: 999px; font-variant-numeric: tabular-nums;
+}
+.info { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; padding-inline: 4px; }
+.info div { min-width: 0; }
+.info strong { display: block; font-size: 16px; font-weight: 800; line-height: 1.3; letter-spacing: -.03em; }
+.info span { display: block; white-space: pre-line; font-size: 13px; font-weight: 600; color: var(--muted); line-height: 1.4; }
+.save {
+  flex: none; width: 42px; height: 42px; border-radius: 50%; border: var(--line); background: var(--sky);
+  display: grid; place-items: center; cursor: pointer; text-decoration: none; color: var(--ink); box-shadow: 2px 2px 0 var(--ink);
+}
+.save:hover { background: var(--pink); }
+@media (max-width: 580px) {
+  .card { padding: 8px 8px 12px; border-radius: 20px; }
+  .info { padding-inline: 2px; }
+  .info strong { font-size: 14px; }
+  .info span { display: none; }
+  .save { width: 36px; height: 36px; }
+}
+.save svg { width: 19px; height: 19px; }
+
+/* guide */
+.guide { background: var(--sky); border-block: var(--line); position: relative; }
+.peek { position: absolute; top: 2px; transform: translateY(-100%); height: 104px; width: auto; right: max(32px, calc((100% - 1120px) / 2 + 40px)); }
+.guide .wrap { padding-block: 56px; display: grid; gap: 26px; }
+.guide h2 { margin: 0; font-size: clamp(28px, 4.4vw, 40px); font-weight: 900; letter-spacing: -.05em; line-height: 1.1; }
+.steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+@media (max-width: 680px) { .steps { grid-template-columns: 1fr; } }
+.os { background: #fff; border: var(--line); border-radius: 22px; padding: 22px 24px 24px; box-shadow: var(--shadow-lg); min-width: 0; }
+.os:nth-child(2) { background: #fff6f8; }
+.os h3 { margin: 0 0 14px; display: inline-block; font-size: 16px; font-weight: 900; background: var(--ink); color: #fff; border-radius: 999px; padding: 3px 14px; }
+.os ol { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 10px; font-size: 15px; font-weight: 600; }
+.os li { counter-increment: s; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: start; }
+.os li::before {
+  content: counter(s); width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--ink); background: var(--pink);
+  display: grid; place-items: center; font-size: 13px; font-weight: 900; line-height: 1;
+}
+.os b { font-weight: 800; }
+.note { margin: 0; font-size: 14px; font-weight: 500; }
+
+/* cheer */
+.cheer-wrap { padding-block: 80px; }
+.cheer {
+  background: var(--blue); color: #fff; border: 3px solid var(--ink); border-radius: 36px; box-shadow: 10px 10px 0 var(--ink);
+  padding: 44px 48px 0; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: end; gap: 12px 40px; overflow: hidden; position: relative;
+}
+.cheer::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.14) 1.5px, transparent 1.6px); background-size: 22px 22px;
+}
+.cheer > * { position: relative; z-index: 1; }
+.cheer .puang { width: clamp(200px, 26vw, 300px); height: auto; margin-bottom: -6px; }
+.cheer-copy { display: grid; gap: 18px; justify-items: start; padding-bottom: 48px; align-self: center; min-width: 0; }
+.cheer-copy .tag { color: var(--ink); transform: rotate(-3deg); }
+.cheer h2 { margin: 0; font-size: clamp(30px, 4.6vw, 48px); line-height: 1.15; font-weight: 900; letter-spacing: -.005em; text-wrap: balance; }
+.cheer h2 .hl { color: var(--ink); background: var(--pink); padding: 0 .12em; border-radius: .16em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.cheer p { margin: 0; max-width: 32em; font-size: 17px; font-weight: 600; color: rgba(255,255,255,.92); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.cta .btn { min-height: 50px; font-size: 15px; padding: 0 20px; }
+.cta .btn small { font-size: 13px; font-weight: 600; opacity: .7; }
+.cta .btn svg { width: 19px; height: 19px; }
+@media (max-width: 760px) {
+  .cheer { grid-template-columns: 1fr; padding: 32px 24px 0; border-radius: 28px; box-shadow: 6px 6px 0 var(--ink); }
+  .cheer-copy { padding-bottom: 0; }
+  .cheer .puang { order: 2; justify-self: center; width: 220px; }
+}
+
+/* footer */
+footer { background: var(--ink); color: #fff; }
+footer .wrap { padding-block: 36px 48px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px; align-items: center; }
+footer .suit { width: 84px; height: auto; }
+.credit { display: grid; gap: 8px; font-size: 13px; color: rgba(255,255,255,.72); min-width: 0; }
+.credit strong { color: #fff; font-weight: 900; font-size: 18px; letter-spacing: -.03em; }
+.credit .by { color: var(--sky); font-weight: 700; font-size: 14px; }
+.credit ul { margin: 4px 0 0; padding-left: 1.1em; display: grid; gap: 2px; }
+
+/* viewer */
+.viewer {
+  position: fixed; inset: 0; z-index: 50; background: rgba(13, 26, 48, .94);
+  display: grid; grid-template-rows: auto 1fr auto;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+  color: #fff;
+}
+.v-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 15px; }
+.v-top b { font-weight: 800; }
+.v-stage { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; min-height: 0; padding-block: 12px; }
+.v-pic { height: 100%; min-height: 0; display: grid; place-items: center; }
+.v-pic img { max-height: 100%; max-width: 100%; border-radius: 18px; border: 3px solid #fff; object-fit: contain; min-height: 0; }
+.icon-btn {
+  width: 46px; height: 46px; border-radius: 50%; border: 2.5px solid #fff; background: transparent;
+  color: #fff; display: grid; place-items: center; cursor: pointer;
+}
+.icon-btn:hover { background: rgba(255,255,255,.14); }
+.icon-btn svg { width: 20px; height: 20px; }
+.v-bottom { display: flex; justify-content: center; }
+.v-bottom .btn { background: var(--sky); box-shadow: 4px 4px 0 #fff; border-color: #fff; }
+@media (max-width: 580px) { .v-stage { grid-template-columns: 1fr; } .v-stage .icon-btn { display: none; } }
+
+.toast {
+  position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  z-index: 60; background: #fff; color: var(--ink); border: var(--line); box-shadow: var(--shadow);
+  padding: 10px 18px; border-radius: 999px; font-size: 15px; font-weight: 700; max-width: calc(100% - 32px); text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track { animation: slide 28s linear infinite; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+  .badge-spin { animation: spin 16s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .hero-art .puang { animation: bob 3.4s ease-in-out infinite; }
+  @keyframes bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -8px); } }
+}
+@media (prefers-reduced-motion: reduce) { .card, .btn, .chip { transition: none; } }
+
+/* ===== Mobile app layer (≤760px). Desktop above this width is untouched. =====
+   Pieces that only exist here: bottom dock with a raised "전체 받기" button, OS tabs in the guide,
+   viewer dots. Everything else is the same markup re-laid for one-thumb use. */
+.dock, .os-tabs, .v-dots, .f-toggle, .br-m { display: none; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (max-width: 760px) {
+  :root { --dock-h: 64px; }
+  body { padding-bottom: calc(var(--dock-h) + 28px + env(safe-area-inset-bottom, 0px)); background: var(--ink); }
+  main { background: var(--sky-pale); }
+  .br-d { display: none; }
+
+  /* header + hero: compact, thumb-first */
+  .mast { padding-block: 12px; }
+  .brand { font-size: 16px; gap: 10px; }
+  .mark { width: 48px; height: 28px; }
+  .mast .tag { font-size: 12px; padding: 3px 11px; }
+  .hero { padding-block: 0 36px; gap: 4px; }
+  .hero-art { width: min(68%, 260px); }
+  .bubble { font-size: 12px; padding: 6px 11px; left: -14%; top: 8%; }
+  .hero-copy { gap: 16px; }
+  .hero-copy .tag { font-size: 13px; }
+  .hero p { margin-top: 4px; font-size: 16px; line-height: 1.65; }
+  .hero .actions { display: none; }
+
+  .marquee-track { padding-block: 9px; }
+  .marquee-track span { font-size: 16px; gap: 16px; padding-right: 16px; }
+  .marquee-track svg { width: 14px; height: 14px; }
+
+  /* gallery: swipeable filter row, 2-up cards, save button on the picture */
+  .gallery { padding-block: 36px 56px; }
+  .bar { margin-bottom: 22px; gap: 14px; }
+  .bar-title img { width: 48px; }
+  .bar h2 { font-size: 30px; }
+  .bar h2 small { font-size: 13px; margin-bottom: 4px; }
+  .chips {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; width: calc(100% + 40px);
+    margin-inline: -20px; padding: 2px 20px 6px; scroll-padding-inline: 20px;
+  }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; padding: 8px 16px; font-size: 14px; min-height: 40px; }
+  .grid { gap: 22px 12px; }
+  .card { position: relative; padding: 7px 7px 11px; border-radius: 20px; gap: 9px; box-shadow: 4px 4px 0 var(--ink); }
+  .card:nth-child(odd) { --r: -.7deg; }
+  .card:nth-child(even) { --r: .7deg; }
+  .shot { border-radius: 14px; border-width: 2px; }
+  .no { left: 7px; top: 7px; font-size: 11px; padding: 0 7px; }
+  .info { display: block; padding-inline: 3px; }
+  .info strong { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .save { position: absolute; right: 13px; top: 13px; width: 38px; height: 38px; border-width: 2px; box-shadow: 2px 2px 0 var(--ink); }
+  .save svg { width: 17px; height: 17px; }
+
+  /* guide: one OS at a time */
+  .peek { height: 78px; right: 22px; }
+  .guide .wrap { padding-block: 40px; gap: 18px; }
+  .guide h2 { font-size: 28px; }
+  .os-tabs {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; background: #fff;
+    border: var(--line); border-radius: 999px; box-shadow: 3px 3px 0 var(--ink);
+  }
+  .os-tab { border: 0; background: transparent; border-radius: 999px; min-height: 42px; font-weight: 800; font-size: 15px; cursor: pointer; }
+  .os-tab[aria-selected="true"] { background: var(--ink); color: #fff; }
+  .steps[data-os="ios"] .os[data-os="android"], .steps[data-os="android"] .os[data-os="ios"] { display: none; }
+  .os { padding: 20px; border-radius: 20px; box-shadow: 4px 4px 0 var(--ink); }
+  .os h3 { display: none; }
+  .os ol { font-size: 15px; gap: 12px; }
+  .note { font-size: 13px; }
+
+  /* cheer */
+  .cheer-wrap { padding-block: 44px 48px; }
+  .cheer { padding: 26px 20px 0; gap: 4px; }
+  .cheer h2 { font-size: 27px; }
+  .cheer p { font-size: 15px; }
+  .cta { display: grid; width: 100%; gap: 10px; }
+  .cta .btn { width: 100%; justify-content: flex-start; min-height: 52px; }
+  .cta .btn small { margin-left: auto; }
+  .cheer .puang { width: 170px; margin-top: 10px; }
+
+  footer .wrap { padding-block: 28px 20px; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; align-items: start; }
+  footer .suit { width: 56px; }
+  .credit strong { font-size: 16px; }
+
+  /* bottom dock */
+  .dock {
+    display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end;
+    position: fixed; z-index: 40; height: var(--dock-h);
+    left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    background: #fff; border: var(--line); border-radius: 26px; box-shadow: 4px 4px 0 var(--ink); padding: 0 4px 8px;
+  }
+  .dock a, .dock button {
+    display: grid; justify-items: center; gap: 2px; text-decoration: none; color: var(--muted);
+    font-size: 11px; font-weight: 700; letter-spacing: -.02em; background: none; border: 0; padding: 0; cursor: pointer; min-height: 48px; align-content: end;
+  }
+  .dock svg { width: 22px; height: 22px; }
+  .dock a[aria-current="true"] { color: var(--blue); }
+  .dock .fab { align-self: end; color: var(--ink); }
+  .dock .fab span:first-child {
+    width: 58px; height: 58px; margin-top: -26px; border-radius: 50%; background: var(--pink); border: var(--line); box-shadow: 3px 3px 0 var(--ink);
+    display: grid; place-items: center;
+  }
+  .dock .fab svg { width: 24px; height: 24px; }
+  .dock .fab:active span:first-child { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  /* viewer as a full-screen sheet */
+  .viewer { background: #0d1a30; padding-inline: max(14px, env(safe-area-inset-left, 0px)) max(14px, env(safe-area-inset-right, 0px)); }
+  body:has(.viewer:not([hidden])) .dock { display: none; }
+  .v-pic img { border-width: 2px; border-radius: 16px; }
+  .v-dots { display: flex; justify-content: center; gap: 6px; padding-bottom: 14px; }
+  .v-dots i { width: 6px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.35); transition: width .2s; }
+  .v-dots i.on { width: 18px; background: var(--sky); }
+  .v-bottom { display: grid; justify-content: stretch; }
+  .v-bottom .btn { width: 100%; min-height: 54px; }
+
+  .toast { bottom: calc(var(--dock-h) + 30px + env(safe-area-inset-bottom, 0px)); }
+
+  /* phone sizing pass (tuned on iPhone 16 Pro, 402 × 874) */
+  .mast { padding-block: 10px; }
+  /* hero keeps the web arrangement: copy on the left, a small Puang on the right */
+  .hero { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto; align-items: center; column-gap: 8px; row-gap: 12px; padding-block: 10px 26px; }
+  .hero-copy { display: contents; }
+  .hero-copy .tag { grid-column: 1; grid-row: 1; justify-self: start; font-size: 11px; padding: 2px 10px; border-width: 2px; box-shadow: 2px 2px 0 var(--ink); }
+  .hero h1 { grid-column: 1; grid-row: 2; font-size: clamp(21px, 6.5vw, 30px); }
+  .hero h1 .hl { border-width: 2px; box-shadow: 3px 3px 0 var(--ink); }
+  .hero p { grid-column: 1 / -1; grid-row: 3; font-size: 12.5px; line-height: 1.6; margin-top: 2px; }
+  .hero-art { order: 0; grid-column: 2; grid-row: 1 / 3; width: clamp(104px, 30vw, 132px); margin: 0; }
+  .hero-art .disc { border-width: 2px; box-shadow: 3px 3px 0 var(--ink); }
+  .bubble, .spark { display: none; }
+  .badge { width: 38%; right: -12%; top: -6%; }
+
+  .marquee-track span { font-size: 14px; }
+  .gallery { padding-block: 28px 48px; }
+  .bar { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; margin-bottom: 16px; gap: 10px; }
+  .bar-title img { display: none; }
+  .bar h2 { font-size: 18px; line-height: 1.2; letter-spacing: -.03em; }
+  .bar h2 small { font-size: 11px; margin-bottom: 2px; }
+  .f-toggle {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px 0 14px; cursor: pointer;
+    background: #fff; border: 2px solid var(--ink); border-radius: 999px; box-shadow: 2px 2px 0 var(--ink); font-size: 13px; font-weight: 800;
+  }
+  .f-toggle b { min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--pink); border: 1.5px solid var(--ink); font-size: 11px; display: grid; place-items: center; }
+  .f-toggle svg { width: 15px; height: 15px; transition: transform .15s; }
+  .bar.open .f-toggle svg { transform: rotate(180deg); }
+  .chips {
+    display: none; position: absolute; z-index: 20; top: calc(100% + 8px); right: 0; width: 176px; margin: 0; padding: 6px; overflow: visible;
+    background: #fff; border: 2px solid var(--ink); border-radius: 16px; box-shadow: 4px 4px 0 var(--ink);
+  }
+  .bar.open .chips { display: grid; gap: 2px; }
+  .chip { min-height: 40px; padding: 0 12px; font-size: 14px; text-align: left; border: 0; box-shadow: none; border-radius: 10px; white-space: nowrap; }
+  .chip:hover { transform: none; background: var(--sky-pale); }
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 10px; }
+  .card { padding: 4px 4px 8px; border-radius: 14px; border-width: 2px; box-shadow: 3px 3px 0 var(--ink); gap: 6px; }
+  .card:nth-child(odd), .card:nth-child(even) { --r: 0deg; }
+  .shot { border-radius: 10px; border-width: 1.5px; }
+  .info { padding-inline: 2px; }
+  .info strong { font-size: 12px; letter-spacing: -.04em; }
+  .save { width: 28px; height: 28px; right: 8px; top: 8px; border-width: 1.5px; box-shadow: 1.5px 1.5px 0 var(--ink); }
+  .save svg { width: 14px; height: 14px; }
+  .no { left: 5px; top: 5px; font-size: 9px; padding: 0 5px; border-width: 1.5px; }
+
+  .peek { height: 64px; }
+  .guide .wrap { padding-block: 32px; gap: 14px; }
+  .guide h2 { font-size: 18px; letter-spacing: -.03em; }
+  .os-tab { min-height: 38px; font-size: 14px; }
+  .os { padding: 16px; }
+  .os ol { font-size: 14px; gap: 10px; }
+  .os li { grid-template-columns: 24px minmax(0, 1fr); gap: 8px; }
+  .os li::before { width: 22px; height: 22px; font-size: 12px; }
+  .note { font-size: 10px; line-height: 1.6; }
+
+  .cheer-wrap { padding-block: 36px 40px; }
+  .cheer { padding: 22px 18px 0; border-radius: 24px; box-shadow: 5px 5px 0 var(--ink); }
+  .cheer-copy { gap: 12px; }
+  .cheer-copy .tag { font-size: 12px; padding: 3px 11px; border-width: 2px; box-shadow: 2px 2px 0 var(--ink); }
+  .cheer h2 { font-size: 13px; line-height: 1.45; letter-spacing: -.01em; }
+  .cheer h2 .hl { padding: 0 .2em; }
+  .cheer p { font-size: 12px; line-height: 1.65; }
+  .cta { gap: 8px; }
+  .cta .btn { min-height: 44px; font-size: 14px; padding: 0 16px; border-width: 2px; box-shadow: 3px 3px 0 var(--ink); }
+  .cta .btn small { font-size: 12px; }
+  .cta .btn svg { width: 17px; height: 17px; }
+  .cheer .puang { width: 140px; margin-top: 6px; }
+
+  .credit strong { font-size: 15px; }
+  .credit .by { font-size: 13px; }
+  .credit { font-size: 12px; }
+
+  /* round 3 (app review): smaller Puang + type, hero copy stays in the left column like the web */
+  .hero { column-gap: 10px; row-gap: 10px; padding-block: 8px 24px; }
+  .hero-copy .tag { font-size: 10px; padding: 2px 9px; }
+  .hero h1 { font-size: clamp(19px, 5.6vw, 26px); }
+  .hero p { grid-column: 1; font-size: 10px; line-height: 1.65; }
+  .hero-art { grid-row: 1 / 4; align-self: center; width: clamp(84px, 24vw, 104px); }
+  .badge { width: 40%; }
+  .f-toggle b { display: none; }
+  .f-toggle { padding: 0 12px 0 14px; }
+
+  .os ol { font-size: 10px; gap: 8px; }
+  .os li { grid-template-columns: 20px minmax(0, 1fr); align-items: center; }
+  .os li::before { width: 18px; height: 18px; font-size: 10px; border-width: 1.5px; }
+  .note { font-size: 9px; }
+
+  .cheer p { font-size: 10px; }
+  .cta .btn { min-height: 38px; font-size: 11px; padding: 0 14px; gap: 6px; }
+  .cta .btn small { font-size: 10px; }
+  .cta .btn svg { width: 14px; height: 14px; }
+
+  footer .wrap { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding-block: 22px 16px; }
+  footer .suit { width: 44px; }
+  .credit { font-size: 9.5px; gap: 5px; }
+  .credit strong { font-size: 12px; }
+  .credit .by { font-size: 10.5px; }
+
+  /* round 4: fit lines exactly */
+  .hero p { font-size: min(11px, calc((100vw - 50px - clamp(84px, 24vw, 104px)) / 24)); letter-spacing: -.015em; }
+  .hero p .br-d { display: inline; }
+  .os ol { font-size: min(9.5px, calc((100vw - 104px) / 24)); }
+  .os li span { white-space: nowrap; }
+  .note { font-size: 8px; }
+  .cta { grid-template-columns: 1fr 1fr; }
+  .cta .btn { justify-content: center; padding: 0 10px; min-height: 36px; }
+  .cta .btn small { display: none; }
+  .credit { font-size: 8px; }
+
+  /* round 5 */
+  .hero p { font-size: min(9.5px, calc((100vw - 50px - clamp(84px, 24vw, 104px)) / 27)); white-space: nowrap; }
+  .cheer { padding-bottom: 18px; }
+  .cheer .puang { margin: 8px 0 0; }
+  .cta .btn { padding: 0 8px; gap: 4px; font-size: 10px; }
+  .cta .btn small { display: inline; font-size: 8.5px; margin-left: 2px; }
+  .cta .btn svg { width: 13px; height: 13px; }
+
+  /* round 6 */
+  .hero-art { align-self: center; transform: translateY(-44px); }
+  .badge { top: 8%; }
+  .br-m { display: inline; }
+  .cheer h2 .hl { display: inline-block; margin-top: 2px; }
+  .cheer p { font-size: 9px; }
+  .cta { grid-template-columns: 1fr; gap: 8px; }
+  .cta .btn { justify-content: flex-start; padding: 0 14px; gap: 6px; min-height: 36px; font-size: 11px; }
+  .cta .btn small { margin-left: auto; font-size: 10px; }
+
+  /* round 7: buttons hug their text, same width as each other */
+  .cta { display: inline-grid; grid-template-columns: max-content; width: auto; justify-self: start; }
+  .cta .btn { padding: 0 14px; gap: 6px; }
+  .cta .btn small { margin-left: 0; }
+  .cheer .puang { width: 110px; }
+
+  /* round 8: give the sticker outline room so WebKit doesn't clip it to the image box */
+  .cheer .puang { box-sizing: border-box; width: 160px; padding: 0; margin: 4px 0 0; max-width: 100%; }
+  .hero h1 .hl { margin-top: .21em; }
+
+  /* round 9: guide steps never cross the card edge; cheer copy on three fixed lines */
+  .os ol { font-size: min(9px, calc((100vw - 104px) / 27)); }
+  .os li span { white-space: normal; }
+  .cheer p { font-size: min(8px, calc((100vw - 76px) / 30)); }
+  .cheer p .br-d { display: inline; }
+}
+</style>
+</head>
+<body>
+
+<div class="top" id="top">
+  <header class="wrap mast">
+    <div class="brand"><span class="mark" role="img" aria-label="CAU"></span>중앙대학교</div>
+    <span class="tag">홍보대사 중앙사랑</span>
+  </header>
+
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <span class="tag">예비 중앙인 · 중앙인 모두 모여라</span>
+      <h1><span class="row">한국의 중앙에서,</span><span class="hl">세계의 중앙으로</span></h1>
+      <p>매일 여는 휴대폰 화면 속 캠퍼스가 작은 응원이 되기를 바라며,<br class="br-d"> 홍보대사 중앙사랑이 배경화면 11종을 준비했어요.<br class="br-d"> 중앙대를 꿈꾸는 예비 중앙인 여러분의 오늘을 응원합니다!</p>
+      <div class="actions">
+        <button class="btn pink" type="button" id="saveAll">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
+          11종 한 번에 받기
+        </button>
+        <a class="btn" href="#gallery">하나씩 고르기</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="disc"></div>
+      <svg class="spark" style="left:2%;bottom:20%" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>
+      <svg class="spark" style="right:4%;bottom:34%;width:18px;height:18px;color:var(--pink)" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>
+      <img class="puang sticker" src="puang/globe.webp" alt="지구를 안고 있는 중앙대 마스코트 푸앙" width="544" height="720">
+      <span class="bubble">배경화면 받아 가!</span>
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="57" fill="#ffffff" stroke="#13284a" stroke-width="3"/>
+          <g class="badge-spin">
+            <defs><path id="ring" d="M60,60 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0"/></defs>
+            <text font-family="Pretendard Variable, Pretendard, sans-serif" font-size="13" font-weight="800" fill="#13284a"><textPath href="#ring" textLength="258" lengthAdjust="spacing">Chung-Ang Univ Wallpaper ·</textPath></text>
+          </g>
+          <circle cx="60" cy="60" r="27" fill="#f6bccb" stroke="#13284a" stroke-width="2.5"/>
+          <text x="60" y="66" text-anchor="middle" font-family="Pretendard Variable, Pretendard, sans-serif" font-size="17" font-weight="900" fill="#13284a">11종</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee"></div>
+</div>
+
+<main>
+  <section class="wrap gallery" id="gallery" aria-labelledby="g-title">
+    <div class="bar">
+      <div class="bar-title">
+        <img class="sticker" src="puang/wink.webp" alt="" width="112" height="160">
+        <h2 id="g-title"><small>1080 × 1920 · PNG · JPG</small>배경화면 11종</h2>
+      </div>
+      <button class="f-toggle" type="button" id="fToggle" aria-expanded="false" aria-controls="chips">
+        <span id="fLabel">전체</span><b id="fCount">11</b>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="chips" id="chips" role="group" aria-label="분류">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">전체</button>
+        <button class="chip" type="button" data-f="symbol" aria-pressed="false">로고</button>
+        <button class="chip" type="button" data-f="day" aria-pressed="false">캠퍼스 경관</button>
+        <button class="chip" type="button" data-f="night" aria-pressed="false">캠퍼스 야경</button>
+      </div>
+    </div>
+    <ul class="grid" id="grid"></ul>
+  </section>
+
+  <section class="guide" id="guide" aria-labelledby="h-title">
+    <img class="peek sticker" src="puang/face.webp" alt="" width="306" height="360">
+    <div class="wrap">
+      <h2 id="h-title">배경화면 설정 방법</h2>
+      <div class="os-tabs" role="tablist" aria-label="휴대폰 종류">
+        <button class="os-tab" type="button" role="tab" id="tab-ios" data-os="ios" aria-selected="true">iPhone</button>
+        <button class="os-tab" type="button" role="tab" id="tab-android" data-os="android" aria-selected="false">Android</button>
+      </div>
+      <div class="steps" id="steps" data-os="ios">
+        <div class="os" data-os="ios">
+          <h3>iPhone</h3>
+          <ol>
+            <li><span>원하는 배경화면의 <b>저장</b> 버튼을 눌러 사진 앱에 저장해요.</span></li>
+            <li><span><b>설정 → 배경화면 → 새로운 배경화면 추가</b>로 이동해요.</span></li>
+            <li><span><b>사진</b>에서 저장한 이미지를 고르고 위치를 맞춰요.</span></li>
+          </ol>
+        </div>
+        <div class="os" data-os="android">
+          <h3>Android</h3>
+          <ol>
+            <li><span>원하는 배경화면의 <b>저장</b> 버튼을 눌러 갤러리에 저장해요.</span></li>
+            <li><span>갤러리에서 이미지를 열고 <b>⋮ → 배경화면으로 설정</b>을 눌러요.</span></li>
+            <li><span><b>잠금 화면</b>, <b>홈 화면</b> 중 원하는 곳을 선택해요.</span></li>
+          </ol>
+        </div>
+      </div>
+      <p class="note">저장 버튼이 동작하지 않으면 미리보기 이미지를 길게 눌러 저장할 수 있어요. 합격증 배경화면은 사진 편집 앱으로 이름과 모집단위를 적어 나만의 합격 다짐으로 써 보세요.</p>
+    </div>
+  </section>
+
+  <div class="wrap cheer-wrap" id="cheer">
+    <section class="cheer" aria-labelledby="c-title">
+      <img class="puang" src="puang/cheer-sticker.webp" alt="CAU 응원봉을 든 푸앙" width="644" height="637">
+      <div class="cheer-copy">
+        <span class="tag">From 중앙사랑</span>
+        <h2 id="c-title">중앙을 꿈꾸는 당신도,<br class="br-m"> 중앙에서 하루를 보내는 당신도<br class="br-m"> <span class="hl">언제나 응원해요!</span></h2>
+        <p>중앙대학교와 중앙사랑 인스타그램을 팔로우하고,<br class="br-d"> 배경화면 게시물 댓글에 중앙대에게 하고 싶은 말을 적어 보세요.<br class="br-d"> 지금 적은 그 댓글이 머지않아 현실이 될 거예요.</p>
+        <div class="cta">
+          <a class="btn" href="https://www.instagram.com/chunganguniv/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+            중앙대학교 <small>@chunganguniv</small>
+          </a>
+          <a class="btn pink" href="https://www.instagram.com/caulove_/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+            중앙사랑 <small>@caulove_</small>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="suit" src="puang/suit.webp" alt="정장을 입은 홍보대사 푸앙" width="401" height="560">
+    <div class="credit">
+      <strong>중앙대학교 홍보대사 중앙사랑</strong>
+      <span class="by">기획 · 제작 | 중앙사랑 34기 최순영</span>
+      <ul>
+        <li>배경화면은 개인 휴대폰 배경화면 용도로만 사용할 수 있어요.</li>
+        <li>상업적 이용, 무단 수정 및 재배포는 삼가 주세요. 공유할 때는 이 페이지 링크를 전해 주세요.</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="바로가기">
+  <a href="#top" data-sec="top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span>처음</span></a>
+  <a href="#gallery" data-sec="gallery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="7" height="11" rx="2"/><rect x="13" y="3" width="7" height="7" rx="2"/><rect x="13" y="12" width="7" height="9" rx="2"/><rect x="4" y="16" width="7" height="5" rx="2"/></svg><span>배경화면</span></a>
+  <button class="fab" type="button" id="dockSaveAll"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg></span><span>전체 받기</span></button>
+  <a href="#guide" data-sec="guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg><span>설정 방법</span></a>
+  <a href="#cheer" data-sec="cheer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>응원</span></a>
+</nav>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title" hidden>
+  <div class="v-top">
+    <span><b id="v-title"></b> <span id="v-count" style="opacity:.7"></span></span>
+    <button class="icon-btn" type="button" id="v-close" aria-label="닫기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="v-stage">
+    <button class="icon-btn" type="button" id="v-prev" aria-label="이전">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="v-pic"><img id="v-img" alt=""></div>
+    <button class="icon-btn" type="button" id="v-next" aria-label="다음">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+  </div>
+  <div class="v-dots" id="v-dots" aria-hidden="true"></div>
+  <div class="v-bottom">
+    <a class="btn" id="v-save" href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
+      이 배경화면 저장
+    </a>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="vendor/jszip.min.js"></script>
+<script>
+const WALLS = [
+  { t: "CAU 로고 · 화이트", d: "한국의 중앙에서,\n세계의 중앙으로", f: "symbol" },
+  { t: "CAU 로고 · 블루", d: "한국의 중앙에서,\n세계의 중앙으로", f: "symbol" },
+  { t: "중앙대학교 합격증", d: "2027학년도 입학을 응원하며", f: "symbol" },
+  { t: "청룡연못", d: "푸른 하늘 아래 청룡상", f: "day" },
+  { t: "중앙도서관", d: "맑은 날의 CAU 시계탑", f: "day" },
+  { t: "영신관", d: "중앙의 역사가 담긴 건물", f: "day" },
+  { t: "100주년 기념관", d: "파란 하늘 아래 310관", f: "day" },
+  { t: "100주년 기념관 야경", d: "불 밝힌 장미 정원", f: "night" },
+  { t: "중앙도서관 야경", d: "꿈을 키우는 열람실", f: "night" },
+  { t: "100주년 기념관 야경", d: "밤하늘 아래 불 밝힌 310관", f: "night" },
+  { t: "중앙도서관 노을", d: "보랏빛 노을 속 시계탑", f: "night" }
+];
+const pad = n => String(n).padStart(2, "0");
+const EXT = ["png", "png", "png", "jpg", "png", "png", "png", "png", "png", "png", "png"];
+const full = i => `wallpapers/cau-wallpaper-${pad(i + 1)}.${EXT[i]}`;
+const fname = i => `CAU-wallpaper-${pad(i + 1)}.${EXT[i]}`;
+const DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>';
+
+/* marquee: two identical halves so the loop is seamless */
+const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>';
+const phrase = ["중앙사랑이 응원해", "CAU WALLPAPER", "한국의 중앙에서 세계의 중앙으로", "예비 중앙인 환영", "중앙사랑 34기"]
+  .map(t => `${t}${STAR}`).join("");
+document.getElementById("marquee").innerHTML = `<span>${phrase}${phrase}</span><span>${phrase}${phrase}</span>`;
+
+const grid = document.getElementById("grid");
+grid.innerHTML = WALLS.map((w, i) => `
+  <li class="card" data-f="${w.f}">
+    <button class="shot" type="button" data-open="${i}" aria-label="${w.t} 크게 보기">
+      <img src="thumbs/${pad(i + 1)}.jpg" alt="${w.t} 배경화면 미리보기" loading="${i < 4 ? "eager" : "lazy"}" width="540" height="960">
+      <span class="no">${pad(i + 1)}</span>
+    </button>
+    <div class="info">
+      <div><strong>${w.t}</strong><span>${w.d}</span></div>
+      <a class="save" href="${full(i)}" data-save="${i}" aria-label="${w.t} 저장">${DL_ICON}</a>
+    </div>
+  </li>`).join("");
+
+/* filters (on phones the chips live in a drop-down menu opened from the toggle) */
+const bar = document.querySelector(".bar");
+const fToggle = document.getElementById("fToggle");
+function setMenu(open) { bar.classList.toggle("open", open); fToggle.setAttribute("aria-expanded", String(open)); }
+fToggle.addEventListener("click", e => { e.stopPropagation(); setMenu(!bar.classList.contains("open")); });
+document.addEventListener("click", e => { if (!e.target.closest(".bar")) setMenu(false); });
+document.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
+  document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", String(x === c)));
+  const f = c.dataset.f;
+  let n = 0;
+  grid.querySelectorAll(".card").forEach(card => { card.hidden = f !== "all" && card.dataset.f !== f; if (!card.hidden) n++; });
+  document.getElementById("fLabel").textContent = c.textContent;
+  document.getElementById("fCount").textContent = n;
+  setMenu(false);
+}));
+
+/* toast */
+const toastEl = document.getElementById("toast");
+let toastTimer;
+function toast(msg) {
+  toastEl.textContent = msg; toastEl.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { toastEl.hidden = true; }, 2600);
+}
+
+/* downloads: plain browser downloads (same-origin files + blob links) */
+function blobDownload(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+function bindSave(el, getPath, getName) {
+  el.addEventListener("click", () => { el.href = getPath(); el.setAttribute("download", getName()); });
+}
+grid.querySelectorAll("[data-save]").forEach(a => {
+  const i = +a.dataset.save;
+  bindSave(a, () => full(i), () => fname(i));
+});
+let zipping = false;
+async function saveAll(allBtn) {
+  if (!window.JSZip) { toast("잠시 후 다시 눌러 주세요"); return; }
+  if (zipping) return;
+  zipping = true; allBtn.setAttribute("aria-busy", "true"); toast("11종을 묶는 중이에요");
+  try {
+    const zip = new JSZip();
+    const blobs = await Promise.all(WALLS.map((_, i) => fetch(full(i)).then(r => { if (!r.ok) throw new Error("fetch"); return r.blob(); })));
+    blobs.forEach((b, i) => zip.file(fname(i), b));
+    const out = await zip.generateAsync({ type: "blob", compression: "STORE" });
+    blobDownload(out, "CAU-wallpapers-11.zip");
+    toast("11종을 저장했어요!");
+  } catch (e) {
+    toast("한 번에 받기에 실패했어요. 아래에서 하나씩 저장해 주세요");
+  } finally { zipping = false; allBtn.removeAttribute("aria-busy"); }
+}
+["saveAll", "dockSaveAll"].forEach(id => {
+  const b = document.getElementById(id);
+  b.addEventListener("click", () => saveAll(b));
+});
+
+/* viewer */
+const viewer = document.getElementById("viewer");
+const vImg = document.getElementById("v-img");
+const vSave = document.getElementById("v-save");
+const vDots = document.getElementById("v-dots");
+vDots.innerHTML = WALLS.map(() => "<i></i>").join("");
+let cur = 0, lastFocus = null;
+function show(i) {
+  cur = (i + WALLS.length) % WALLS.length;
+  vImg.src = `wallpapers/cau-wallpaper-${pad(cur + 1)}.jpg`; /* light preview; saves use the original file */
+  vImg.alt = WALLS[cur].t + " 배경화면";
+  document.getElementById("v-title").textContent = WALLS[cur].t;
+  document.getElementById("v-count").textContent = `${cur + 1} / ${WALLS.length}`;
+  vSave.href = full(cur);
+  vDots.querySelectorAll("i").forEach((d, k) => d.classList.toggle("on", k === cur));
+}
+function openViewer(i) {
+  lastFocus = document.activeElement;
+  show(i); viewer.hidden = false; document.body.style.overflow = "hidden";
+  document.getElementById("v-close").focus();
+}
+function closeViewer() {
+  viewer.hidden = true; document.body.style.overflow = "";
+  lastFocus?.focus();
+}
+grid.addEventListener("click", e => {
+  const b = e.target.closest("[data-open]");
+  if (b) openViewer(+b.dataset.open);
+});
+document.getElementById("v-close").addEventListener("click", closeViewer);
+document.getElementById("v-prev").addEventListener("click", () => show(cur - 1));
+document.getElementById("v-next").addEventListener("click", () => show(cur + 1));
+bindSave(vSave, () => full(cur), () => fname(cur));
+viewer.addEventListener("click", e => { if (e.target === viewer || e.target.classList.contains("v-pic")) closeViewer(); });
+document.addEventListener("keydown", e => {
+  if (viewer.hidden) return;
+  if (e.key === "Escape") closeViewer();
+  if (e.key === "ArrowLeft") show(cur - 1);
+  if (e.key === "ArrowRight") show(cur + 1);
+});
+let sx = null;
+viewer.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+viewer.addEventListener("touchend", e => {
+  if (sx === null) return;
+  const dx = e.changedTouches[0].clientX - sx; sx = null;
+  if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+}, { passive: true });
+/* guide: OS tabs (mobile). Pick Android first on Android phones. */
+const steps = document.getElementById("steps");
+const tabs = document.querySelectorAll(".os-tab");
+function pickOS(os) {
+  steps.dataset.os = os;
+  tabs.forEach(t => t.setAttribute("aria-selected", String(t.dataset.os === os)));
+}
+tabs.forEach(t => t.addEventListener("click", () => pickOS(t.dataset.os)));
+if (/android/i.test(navigator.userAgent)) pickOS("android");
+
+/* dock: highlight the section in view */
+const dockLinks = document.querySelectorAll(".dock a[data-sec]");
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      dockLinks.forEach(a => a.setAttribute("aria-current", String(a.dataset.sec === en.target.id)));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  ["top", "gallery", "guide", "cheer"].forEach(id => { const el = document.getElementById(id); if (el) io.observe(el); });
+}
+</script>
+</body>
+</html>
