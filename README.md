@@ -22,11 +22,11 @@
 1. GitHub에서 새 저장소를 만듭니다 (예: `cau-wallpaper`, Public).
 2. 이 폴더의 파일을 모두 올리고 `main` 브랜치에 push 합니다.
    ```bash
-   git remote add origin https://github.com/<아이디>/cau-wallpaper.git
+   git remote add origin https://github.com/hellosoonyoung22/cau-wallpaper.git
    git push -u origin main
    ```
 3. 저장소 **Settings → Pages**에서 Source를 `Deploy from a branch`, Branch를 `main` / `/ (root)`로 지정하고 저장합니다.
-4. 1~2분 뒤 `https://<아이디>.github.io/cau-wallpaper/` 주소로 열립니다.
+4. 1~2분 뒤 `https://hellosoonyoung22.github.io/cau-wallpaper/` 주소로 열립니다.
 5. 단축 링크(`bit.ly/...`)를 이 새 주소로 연결하면 끝입니다.
 
 ## 배포 후 한 번 해 둘 것
@@ -35,7 +35,7 @@
 카카오톡·인스타그램 링크 미리보기에 이미지가 잘 뜨도록, 배포 주소가 정해지면 전체 주소로 바꿔 주세요.
 
 ```html
-<meta property="og:image" content="https://<아이디>.github.io/cau-wallpaper/og.jpg">
+<meta property="og:image" content="https://hellosoonyoung22.github.io/cau-wallpaper/og.jpg">
 ```
 
 ## 이용 안내
