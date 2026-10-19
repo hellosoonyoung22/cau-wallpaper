@@ -29,14 +29,10 @@
 4. 1~2분 뒤 `https://hellosoonyoung22.github.io/cau-wallpaper/` 주소로 열립니다.
 5. 단축 링크(`bit.ly/...`)를 이 새 주소로 연결하면 끝입니다.
 
-## 배포 후 한 번 해 둘 것
+## 링크 미리보기
 
-`index.html`의 `og:image`는 상대 경로(`og.jpg`)로 되어 있습니다.
-카카오톡·인스타그램 링크 미리보기에 이미지가 잘 뜨도록, 배포 주소가 정해지면 전체 주소로 바꿔 주세요.
-
-```html
-<meta property="og:image" content="https://hellosoonyoung22.github.io/cau-wallpaper/og.jpg">
-```
+`index.html`의 `og:image`, `og:url`은 `https://hellosoonyoung22.github.io/cau-wallpaper/` 기준으로 지정되어 있습니다.
+저장소 이름이나 주소가 바뀌면 이 두 줄도 함께 바꿔 주세요.
 
 ## 이용 안내
 
