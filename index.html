@@ -528,6 +528,17 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .os li span { white-space: normal; }
   .cheer p { font-size: min(8px, calc((100vw - 76px) / 30)); }
   .cheer p .br-d { display: inline; }
+
+  /* round 10: cheer panel sized to its text — compact box, small buttons, Puang tucked beside the buttons */
+  .cheer-wrap { padding-block: 28px 32px; }
+  .cheer { padding: 18px 16px 16px; border-radius: 20px; border-width: 2px; box-shadow: 4px 4px 0 var(--ink); gap: 0; }
+  .cheer-copy { gap: 10px; }
+  .cheer-copy .tag { font-size: 10px; padding: 2px 9px; }
+  .cta { gap: 6px; margin-top: 2px; }
+  .cta .btn { min-height: 28px; font-size: 10px; padding: 0 10px; gap: 5px; border-width: 1.5px; box-shadow: 2px 2px 0 var(--ink); }
+  .cta .btn small { font-size: 8.5px; }
+  .cta .btn svg { width: 12px; height: 12px; }
+  .cheer .puang { position: absolute; right: 14px; bottom: 10px; width: 92px; margin: 0; z-index: 2; }
 }
 </style>
 </head>
