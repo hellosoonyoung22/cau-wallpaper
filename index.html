@@ -808,7 +808,7 @@ function warm(i = 0) {
   if (i >= WALLS.length) return;
   const src = full(i);
   if (src.startsWith("data:")) { blobFor(i); setTimeout(() => warm(i + 1), 30); }
-  else fetch(src).then(r => r.blob()).then(bl => { blobCache[i] = bl; }).catch(() => {}).finally(() => warm(i + 1));
+  /* separate image files are fetched only when someone taps save, to spare mobile data */
 }
 setTimeout(() => warm(), 1200);
 function fileFor(i) {
@@ -832,11 +832,18 @@ function inAppHelp(i) {
   if (typeof i === "number") openViewer(i);
   toast("인스타·카톡 앱 안에서는 바로 저장이 막혀 있어요. 이미지를 길게 눌러 저장하거나, ⋯ 메뉴에서 '다른 브라우저로 열기'를 눌러 주세요");
 }
-function saveOne(i) {
-  const file = fileFor(i);
-  if (IS_IOS && file && canShareFiles([file])) {
-    navigator.share({ files: [file] }).catch(e => { if (e && e.name === "NotAllowedError") blobDownload(file, file.name); });
-    return;
+async function fetchInto(i) {
+  if (blobCache[i]) return;
+  try { blobCache[i] = await fetch(full(i)).then(r => { if (!r.ok) throw new Error("fetch"); return r.blob(); }); } catch (e) {}
+}
+async function saveOne(i) {
+  let file = fileFor(i);
+  if (IS_IOS && navigator.share) {
+    if (!file) { toast("사진을 준비하고 있어요"); await fetchInto(i); file = fileFor(i); }
+    if (file && canShareFiles([file])) {
+      navigator.share({ files: [file] }).catch(e => { if (e && e.name === "NotAllowedError") toast("준비됐어요! 한 번 더 누르면 사진 앱에 저장돼요"); });
+      return;
+    }
   }
   if (IN_APP) { inAppHelp(i); return; }
   if (file) blobDownload(file, file.name); else linkDownload(i);
@@ -847,10 +854,15 @@ grid.querySelectorAll("[data-save]").forEach(a => {
 });
 let zipping = false;
 async function saveAll(allBtn) {
-  if (IS_IOS) {
-    const files = WALLS.map((_, i) => fileFor(i));
+  if (IS_IOS && navigator.share) {
+    let files = WALLS.map((_, i) => fileFor(i));
+    if (!files.every(Boolean)) {
+      toast("11장을 준비하고 있어요");
+      await Promise.all(WALLS.map((_, i) => fetchInto(i)));
+      files = WALLS.map((_, i) => fileFor(i));
+    }
     if (files.every(Boolean) && canShareFiles(files)) {
-      navigator.share({ files }).catch(() => {});
+      navigator.share({ files }).catch(e => { if (e && e.name === "NotAllowedError") toast("준비됐어요! 한 번 더 누르면 11장이 사진 앱에 저장돼요"); });
       return;
     }
   }
