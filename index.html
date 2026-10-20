@@ -784,34 +784,89 @@ function toast(msg) {
   clearTimeout(toastTimer); toastTimer = setTimeout(() => { toastEl.hidden = true; }, 2600);
 }
 
-/* downloads: plain browser downloads (same-origin files + blob links) */
+/* saving
+   iPhone/iPad: share sheet with the image file -> "이미지 저장" puts it straight into Photos
+   Android/PC: direct download
+   In-app browsers (Instagram, Kakao…): downloads are blocked there, so open the image and explain long-press */
+const UA = navigator.userAgent;
+const IS_IOS = /iPhone|iPad|iPod/.test(UA) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const IN_APP = /Instagram|FBAN|FBAV|KAKAOTALK|NAVER\(inapp|Line\/|DaumApps|everytimeApp|; wv\)/i.test(UA);
+const blobCache = [];
+function dataToBlob(uri) {
+  const comma = uri.indexOf(","), mime = uri.slice(5, uri.indexOf(";"));
+  const bin = atob(uri.slice(comma + 1)), u = new Uint8Array(bin.length);
+  for (let k = 0; k < bin.length; k++) u[k] = bin.charCodeAt(k);
+  return new Blob([u], { type: mime });
+}
+function blobFor(i) {
+  if (blobCache[i]) return blobCache[i];
+  const src = full(i);
+  return src.startsWith("data:") ? (blobCache[i] = dataToBlob(src)) : null;
+}
+/* prepare files ahead of time so the share sheet opens instantly on tap */
+function warm(i = 0) {
+  if (i >= WALLS.length) return;
+  const src = full(i);
+  if (src.startsWith("data:")) { blobFor(i); setTimeout(() => warm(i + 1), 30); }
+  else fetch(src).then(r => r.blob()).then(bl => { blobCache[i] = bl; }).catch(() => {}).finally(() => warm(i + 1));
+}
+setTimeout(() => warm(), 1200);
+function fileFor(i) {
+  const bl = blobFor(i);
+  return bl ? new File([bl], fname(i), { type: bl.type || "image/jpeg" }) : null;
+}
+function canShareFiles(files) {
+  try { return !!(navigator.canShare && navigator.canShare({ files })); } catch (e) { return false; }
+}
 function blobDownload(blob, filename) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 5000);
 }
-function bindSave(el, getPath, getName) {
-  el.addEventListener("click", () => { el.href = getPath(); el.setAttribute("download", getName()); });
+function linkDownload(i) {
+  const a = document.createElement("a");
+  a.href = full(i); a.download = fname(i); document.body.appendChild(a); a.click(); a.remove();
+}
+function inAppHelp(i) {
+  if (typeof i === "number") openViewer(i);
+  toast("인스타·카톡 앱 안에서는 바로 저장이 막혀 있어요. 이미지를 길게 눌러 저장하거나, ⋯ 메뉴에서 '다른 브라우저로 열기'를 눌러 주세요");
+}
+function saveOne(i) {
+  const file = fileFor(i);
+  if (IS_IOS && file && canShareFiles([file])) {
+    navigator.share({ files: [file] }).catch(e => { if (e && e.name === "NotAllowedError") blobDownload(file, file.name); });
+    return;
+  }
+  if (IN_APP) { inAppHelp(i); return; }
+  if (file) blobDownload(file, file.name); else linkDownload(i);
+  toast(IS_IOS ? "다운로드가 시작됐어요. 파일 앱의 다운로드 폴더에서 확인해 주세요" : "저장했어요! 갤러리나 다운로드 폴더에서 확인해 주세요");
 }
 grid.querySelectorAll("[data-save]").forEach(a => {
-  const i = +a.dataset.save;
-  bindSave(a, () => full(i), () => fname(i));
+  a.addEventListener("click", e => { e.preventDefault(); saveOne(+a.dataset.save); });
 });
 let zipping = false;
 async function saveAll(allBtn) {
+  if (IS_IOS) {
+    const files = WALLS.map((_, i) => fileFor(i));
+    if (files.every(Boolean) && canShareFiles(files)) {
+      navigator.share({ files }).catch(() => {});
+      return;
+    }
+  }
+  if (IN_APP) { inAppHelp(); return; }
   if (!window.JSZip) { toast("잠시 후 다시 눌러 주세요"); return; }
   if (zipping) return;
   zipping = true; allBtn.setAttribute("aria-busy", "true"); toast("11종을 묶는 중이에요");
   try {
     const zip = new JSZip();
-    const blobs = await Promise.all(WALLS.map((_, i) => fetch(full(i)).then(r => { if (!r.ok) throw new Error("fetch"); return r.blob(); })));
-    blobs.forEach((b, i) => zip.file(fname(i), b));
+    const blobs = await Promise.all(WALLS.map((_, i) => blobFor(i) || fetch(full(i)).then(r => { if (!r.ok) throw new Error("fetch"); return r.blob(); })));
+    blobs.forEach((bl, i) => zip.file(fname(i), bl));
     const out = await zip.generateAsync({ type: "blob", compression: "STORE" });
     blobDownload(out, "CAU-wallpapers-11.zip");
     toast("11종을 저장했어요!");
   } catch (e) {
-    toast("한 번에 받기에 실패했어요. 아래에서 하나씩 저장해 주세요");
+    toast("한 번에 받기에 실패했어요. 하나씩 저장해 주세요");
   } finally { zipping = false; allBtn.removeAttribute("aria-busy"); }
 }
 ["saveAll", "dockSaveAll"].forEach(id => {
@@ -851,7 +906,7 @@ grid.addEventListener("click", e => {
 document.getElementById("v-close").addEventListener("click", closeViewer);
 document.getElementById("v-prev").addEventListener("click", () => show(cur - 1));
 document.getElementById("v-next").addEventListener("click", () => show(cur + 1));
-bindSave(vSave, () => full(cur), () => fname(cur));
+vSave.addEventListener("click", e => { e.preventDefault(); saveOne(cur); });
 viewer.addEventListener("click", e => { if (e.target === viewer || e.target.classList.contains("v-pic")) closeViewer(); });
 document.addEventListener("keydown", e => {
   if (viewer.hidden) return;
