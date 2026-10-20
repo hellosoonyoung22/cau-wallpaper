@@ -539,6 +539,16 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .cta .btn small { font-size: 8.5px; }
   .cta .btn svg { width: 12px; height: 12px; }
   .cheer .puang { position: absolute; right: 14px; bottom: 10px; width: 92px; margin: 0; z-index: 2; }
+
+  /* round 11: hero Puang 1.5 dots lower; cheer type +4px, Puang moves to the top-right corner */
+  .hero-art { transform: translateY(-11px); }
+  .cheer-copy .tag { font-size: 14px; padding: 3px 12px; }
+  .cheer h2 { font-size: 17px; line-height: 1.4; }
+  .cheer p { font-size: min(12px, calc((100vw - 72px) / 25.5)); white-space: nowrap; }
+  .cta .btn { min-height: 36px; font-size: 14px; padding: 0 14px; gap: 6px; }
+  .cta .btn small { font-size: 12.5px; }
+  .cta .btn svg { width: 15px; height: 15px; }
+  .cheer .puang { top: 12px; bottom: auto; right: 12px; width: clamp(76px, 22vw, 88px); }
 }
 </style>
 </head>
